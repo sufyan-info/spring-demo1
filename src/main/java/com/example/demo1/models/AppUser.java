@@ -11,6 +11,7 @@ import java.util.List;
 public class AppUser {
 
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @SequenceGenerator(name = "seq_app_gen", sequenceName = "seq_app_user_id", allocationSize = 1)
     private @Id Long id;
 
     private String email;
