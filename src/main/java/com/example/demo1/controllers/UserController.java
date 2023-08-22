@@ -8,6 +8,8 @@ import com.example.demo1.repositories.PostRepository;
 import com.example.demo1.repositories.UserRepository;
 import com.example.demo1.services.AppUserService;
 import jakarta.annotation.Resource;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -16,11 +18,14 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
+    private final Logger logger = LoggerFactory.getLogger(UserController.class);
     private @Resource AppUserService appUserService;
     private @Resource PostRepository postRepository;
 
     @PostMapping
     public AppUser createUser(@RequestBody AppUser request){
+        logger.info("User Email: {}", request.getEmail());
+        logger.info("UserService actually is: {}", appUserService.getClass().getName());
         return appUserService.register(request);
     }
 

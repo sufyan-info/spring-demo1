@@ -10,8 +10,8 @@ import java.util.List;
 @Table(name = "articles")
 @Data
 public class UserArticle {
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "seq_app_gen", sequenceName = "seq_app_user_id", allocationSize = 1)
+    @GeneratedValue//(strategy = GenerationType.SEQUENCE)
+    //@SequenceGenerator(name = "seq_app_gen", sequenceName = "seq_app_user_id", allocationSize = 1)
     private @Id Long id;
 
     // Data Transfer Object -> DTO
